@@ -4,10 +4,10 @@ function submitForm() {
     var email = document.getElementById('email').value;
 
     // Validate input fields
-    if (name.trim() === '' || email.trim() === '') {
-        alert('Please fill in all mandatory fields.');
-        return; // Stop the form submission
-    }
+            if (name.trim() === '' || email.trim() === '') {
+                alert('Please fill in all mandatory fields.');
+                return; // Stop the form submission
+            }
 
 
     // Get browser details
