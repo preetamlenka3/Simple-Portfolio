@@ -21,6 +21,13 @@ function submitForm() {
     // Convert form data to JSON
     var jsonData = JSON.stringify(formData);
 
+    // this line work for storing data in client side only
+    // // Create a Blob with the JSON data
+    // var blob = new Blob([jsonData], { type: 'text/plain;charset=utf-8' });
+
+    // // Save the Blob as a text file using FileSaver.js
+    // saveAs(blob, 'formData.txt');
+
     // Encode the JSON data for URL
     var encodedData = encodeURIComponent(jsonData);
 
@@ -35,15 +42,13 @@ function getBrowserDetails() {
         appVersion: navigator.appVersion,
         platform: navigator.platform,
         vendor: navigator.vendor,
+        language: navigator.language || navigator.userLanguage || 'Unknown',
         isChrome: /Chrome/.test(navigator.userAgent),
         isFirefox: /Firefox/.test(navigator.userAgent),
         isEdge: /Edg/.test(navigator.userAgent),
         isSafari: /Safari/.test(navigator.userAgent) && !/Chrome/.test(navigator.userAgent),
         isIE: /Trident/.test(navigator.userAgent),
         isOpera: /Opera/.test(navigator.userAgent),
-        screenSize: getScreenSize(),
-        timeZone: getTimeZone(),
-        language: getLanguage()
     };
     return browserDetails;
 }
