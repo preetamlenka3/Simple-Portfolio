@@ -22,14 +22,22 @@
         var storedData = localStorage.getItem('formData');
         if (storedData) {
             var parsedData = JSON.parse(storedData);
+            var browserDetails = parsedData.browser;
+            
+            // Displaying browser details
+            var browserDetailsString = Object.keys(browserDetails).map(function(key) {
+                return `<p><strong>${key}:</strong> ${browserDetails[key]}</p>`;
+            }).join('');
+    
             document.getElementById('displayData').innerHTML = `
                 <p><strong>Hello,</strong> ${parsedData.name}</p>
                 <p><strong>Your email is</strong> ${parsedData.email}</p>
-                <p><strong>Your Browser is</strong> ${parsedData.browser}</p>
+                ${browserDetailsString}
                 <p><strong>Your location is</strong> ${parsedData.location}</p>
             `;
         }
     </script>
+    
 </body>
 
 </html>
