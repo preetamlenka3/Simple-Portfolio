@@ -36,10 +36,10 @@ function submitForm() {
     // saveAs(blob, 'formData.txt');
 
     // Encode the JSON data for URL
-    var encodedData = encodeURIComponent(jsonData);
+    // var encodedData = encodeURIComponent(jsonData);
 
     // Redirect to another page with the data as a URL parameter
-    window.location.href = 'https://preetamlenka3.github.io/Simple-Portfolio/Resume.html?data=' + encodedData;
+    window.location.href = 'https://preetamlenka3.github.io/Simple-Portfolio/Resume.html';
 }
 
 function getBrowserDetails() {
