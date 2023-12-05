@@ -4,42 +4,25 @@ function submitForm() {
     var email = document.getElementById('email').value;
 
     // Validate input fields
-            if (name.trim() === '' || email.trim() === '') {
-                alert('Please fill in all mandatory fields.');
-                return; // Stop the form submission
-            }
+    if (name.trim() === '' || email.trim() === '') {
+        alert('Please fill in all mandatory fields.');
+        return; // Stop the form submission
+    }
 
-
-    // Get browser details
-    var browserDetails = getBrowserDetails();
-
-    // Get user location (This might require additional permissions and could be asynchronous)
-    // For simplicity, this example uses a placeholder for location.
-    var userLocation = "Unknown";
-
-    // Create an object with form data, browser details, and location
+    // Create an object with form data
     var formData = {
         name: name,
-        email: email,
-        browser: browserDetails,
-        location: userLocation
+        email: email
     };
 
     // Convert form data to JSON
     var jsonData = JSON.stringify(formData);
 
-    // this line work for storing data in client side only
-    // // Create a Blob with the JSON data
-    // var blob = new Blob([jsonData], { type: 'text/plain;charset=utf-8' });
+    // Save the JSON data in local storage
+    localStorage.setItem('formData', jsonData);
 
-    // // Save the Blob as a text file using FileSaver.js
-    // saveAs(blob, 'formData.txt');
-
-    // Encode the JSON data for URL
-    var encodedData = encodeURIComponent(jsonData);
-
-    // Redirect to another page with the data as a URL parameter
-    window.location.href = 'https://preetamlenka3.github.io/Simple-Portfolio/Resume.html?data=' + encodedData;
+    // Redirect to another page
+    window.location.href = 'https://preetamlenka3.github.io/Simple-Portfolio/Resume.html';
 }
 
 function getBrowserDetails() {

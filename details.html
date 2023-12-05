@@ -21,43 +21,11 @@
         // Fetch data from local storage
         var storedData = localStorage.getItem('formData');
         if (storedData) {
-            try {
-                var parsedData = JSON.parse(storedData);
-                var browserDetails = parsedData.browser;
-
-                // Fetch IP address using a free IP geolocation service
-                fetch('https://api64.ipify.org?format=json')
-                    .then(response => response.json())
-                    .then(ipData => {
-                        // Displaying browser details and IP address
-                        var browserDetailsString = browserDetails
-                            ? Object.keys(browserDetails).map(function (key) {
-                                return `<p><strong>${key}:</strong> ${browserDetails[key]}</p>`;
-                            }).join('')
-                            : '';
-
-                        document.getElementById('displayData').innerHTML = `
-                            <p><strong>Hello,</strong> ${parsedData.name}</p>
-                            <p><strong>Your email is</strong> ${parsedData.email}</p>
-                            ${browserDetailsString}
-                            <p><strong>Your location is</strong> ${parsedData.location}</p>
-                            <p><strong>Your IP address is</strong> ${ipData.ip}</p>
-                        `;
-                    })
-                    .catch(error => {
-                        console.error('Error fetching IP address:', error);
-                        displayError();
-                    });
-            } catch (error) {
-                console.error('Error parsing stored data:', error);
-                displayError();
-            }
-        } else {
-            displayError();
-        }
-
-        function displayError() {
-            document.getElementById('displayData').innerHTML = '<p>Error retrieving data.</p>';
+            var parsedData = JSON.parse(storedData);
+            document.getElementById('displayData').innerHTML = `
+                <p><strong>Hello,</strong> ${parsedData.name}</p>
+                <p><strong>Your email is</strong> ${parsedData.email}</p>
+            `;
         }
     </script>
 </body>
