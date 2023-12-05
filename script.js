@@ -29,14 +29,48 @@ function submitForm() {
 }
 
 function getBrowserDetails() {
-    var ua = navigator.userAgent;
     var browserDetails = {
-        userAgent: ua,
-        isChrome: /Chrome/.test(ua),
-        isFirefox: /Firefox/.test(ua),
-        isEdge: /Edg/.test(ua),
-        isSafari: /Safari/.test(ua) && !/Chrome/.test(ua),
-        isIE: /Trident/.test(ua),
+        userAgent: navigator.userAgent,
+        appName: navigator.appName,
+        appVersion: navigator.appVersion,
+        platform: navigator.platform,
+        vendor: navigator.vendor,
+        isChrome: /Chrome/.test(navigator.userAgent),
+        isFirefox: /Firefox/.test(navigator.userAgent),
+        isEdge: /Edg/.test(navigator.userAgent),
+        isSafari: /Safari/.test(navigator.userAgent) && !/Chrome/.test(navigator.userAgent),
+        isIE: /Trident/.test(navigator.userAgent),
+        isOpera: /Opera/.test(navigator.userAgent),
+        screenSize: getScreenSize(),
+        timeZone: getTimeZone(),
+        language: getLanguage()
     };
     return browserDetails;
+}
+
+
+function getScreenSize() {
+    return {
+        width: window.screen.width,
+        height: window.screen.height,
+        pixelRatio: window.devicePixelRatio
+    };
+}
+
+function getTimeZone() {
+    try {
+        return Intl.DateTimeFormat().resolvedOptions().timeZone;
+    } catch (error) {
+        console.error('Error getting time zone:', error);
+        return 'Unknown';
+    }
+}
+
+function getLanguage() {
+    try {
+        return navigator.language || navigator.userLanguage || 'Unknown';
+    } catch (error) {
+        console.error('Error getting language:', error);
+        return 'Unknown';
+    }
 }
