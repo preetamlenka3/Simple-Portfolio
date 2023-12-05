@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Another Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="Box-o">
+        <div class="container2">
+            <h2>Welcome</h2>
+            <div id="displayData"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Fetch data from local storage
+        var storedData = localStorage.getItem('formData');
+        if (storedData) {
+            var parsedData = JSON.parse(storedData);
+            document.getElementById('displayData').innerHTML = `
+                <p><strong>Hello,</strong> ${parsedData.name}</p>
+                <p><strong>Your email is</strong> ${parsedData.email}</p>
+            `;
+        }
+    </script>
+</body>
+
+</html>
