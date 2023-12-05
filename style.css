@@ -75,6 +75,7 @@ html, body {
     font-family: 'Kenia', sans-serif;
   }
 
+<<<<<<< HEAD
 
 
 /* Extra Style here */
@@ -122,3 +123,9 @@ input {
   border-radius: 4px;
   cursor: pointer;
 } */
+=======
+  .element{
+    color: #6df15c;
+    font-family: 'Kenia', sans-serif;
+  }
+>>>>>>> 054957c3f9e21a623aa798d81c0ff580aaff0ebf

@@ -16,5 +16,5 @@ function submitForm() {
     localStorage.setItem('formData', jsonData);
 
     // Redirect to another page
-    window.location.href = 'Resume.html';
+    window.location.href = 'https://preetamlenka3.github.io/Simple-Portfolio/Resume.html';
 }
