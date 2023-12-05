@@ -69,7 +69,7 @@
   </style>
 </head>
 <body>
-  <a href="https://preetamlenka3.github.io/Simple-Portfolio/details.html"><h1 id="displayData"></h1></a>
+  <a href="https://preetamlenka3.github.io/Simple-Portfolio/details.html"><strong>Hello,</strong> <h1 id="displayData"></h1></a>
 
   <script src="script.js"></script>
     <script>
@@ -78,7 +78,7 @@
         if (storedData) {
             var parsedData = JSON.parse(storedData);
             document.getElementById('displayData').innerHTML = `
-                <p><strong>Hello,</strong> ${parsedData.name}</p>
+                <p>${parsedData.name}</p>
             `;
         }
     </script>

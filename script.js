@@ -5,11 +5,7 @@ function submitForm() {
 
     // Validate input fields
     if (name.trim() === '' || email.trim() === '') {
-        Swal.fire({
-            title: "The input?",
-            text: "Please fill all input?",
-            icon: "question"
-          });
+        alert('Please fill in all mandatory fields.');
         return; // Stop the form submission
     }
 
